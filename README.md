@@ -45,10 +45,13 @@ RMSE stays around $630 in every run because the random outliers dominate it; no 
 - The December chart shows only the weekly pattern (Thursday high, Sunday low, about +-1%). The model has no holiday
   or year-end information, so Dec 25 is treated like any Thursday.
 - Nov-Dec level is extrapolated from the full Jan-Oct history; there is no way to validate beyond the backtest.
-- The final score uses Spotter's hidden labels and metric.
+- The final score is computed on validation labels and a metric that were not available during this work, so the backtests are the best estimate of performance.
+
+## Report
+See `Freight_Rate_Model_Report.pdf` for the full write-up (approach, validation method, results by rate group, December chart).
 
 ## Reproduce
-Place the provided files in `data/` as `train_test.csv`, `validation.csv`, `validation_predictions_template.csv` and `december_chart_inputs.csv` (the folder is git-ignored so the company's data is not published).
+Place the provided files in `data/` as `train_test.csv`, `validation.csv`, `validation_predictions_template.csv` and `december_chart_inputs.csv` (the folder is git-ignored so the provided data is not published).
 ```
 pip install -r requirements.txt
 python solution.py --data-dir data --output-dir outputs
